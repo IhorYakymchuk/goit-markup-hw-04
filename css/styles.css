@@ -21,17 +21,27 @@
   --primary-bg-color: #ffffff;
   --secondary-bg-color: #f5f4fa;
   --hero-footer-bg-color: #2f303a;
-  --projects-border-clr: 1px solid #eeeeee;
+  --projects-border-color: 1px solid #eeeeee;
   --upper-line-color: 1px solid #ececec;
+  --footer-icons-bg-color: rgba(255, 255, 255, 0.1);
+
+  /* icons colors */
+  --primary-icons-fill-color: #afb1b8;
 
   /* btn */
   --hero-btn-hover-color: #188ce8;
   --hero-btn-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  --filtr-btn-box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 
   /* margin, padding, gaps, shadows */
   --card-set-gap: 30px;
   --card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
+  --portfolio-card-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  --portfolio-btn-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* можна настроїти список
@@ -41,8 +51,9 @@
   gap: var(--card-set-gap);
 } */
 
+/* 
 .card-set-item {
-}
+} */
 
 body {
   font-family: var(--main-font);
@@ -94,8 +105,8 @@ img {
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-
-  /* outline: 2px dashed tomato;
+  /* 
+  outline: 2px dashed tomato;
   outline-offset: -2px; */
 }
 
@@ -130,6 +141,20 @@ img {
 
 .contacts-list .header-contacts + .header-contacts {
   margin-left: 50px;
+}
+
+/* .header-mail,
+.header-phone {
+  display: inline-flex;
+  align-items: center;
+} */
+.header-contacts {
+  align-items: baseline;
+}
+
+.contacts-icon {
+  fill: var(--secondary-text-color);
+  margin-right: 10px;
 }
 
 .logo {
@@ -189,9 +214,19 @@ img {
 /* ----------------Hero ----------------------*/
 
 .hero {
-  background-color: var(--hero-footer-bg-color);
+  max-width: 1600px;
+  height: 600px;
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
   padding: 200px 0;
+
+  /* background-color: var(--hero-footer-bg-color); */
+  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url(../images/hero/hero-img.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .hero-title {
@@ -248,24 +283,24 @@ img {
 
 .benefits-list {
   display: flex;
-
   gap: var(--card-set-gap);
 }
 
 .benefits-item {
+  display: block;
   width: 270px;
   flex-basis: calc((100% - var(--card-set-gap) * 2) / 3);
 }
 
-/* .benefits-list {
+.benefits-icon-container {
+  width: 270px;
+  height: 120px;
   display: flex;
-  margin-left: calc(-1 * var(--card-set-gap));
-} */
-
-/* .benefits-item {
-  flex-basis: calc(100% / 4 - var(--card-set-gap));
-  margin-left: var(--card-set-gap);
-} */
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  background-color: var(--secondary-bg-color);
+}
 
 .benefits-subtitle {
   font-size: 14px;
@@ -303,32 +338,6 @@ img {
   flex-basis: calc((100% - var(--card-set-gap) * 2) / 3);
 }
 
-/* --- альтернативний варіант №1  початок---*/
-/* .activity-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: calc(-1 * var(--card-set-gap));
-} */
-
-/* .activity-item {
-  flex-basis: calc(100% / 3 - var(--card-set-gap));
-  margin-left: var(--card-set-gap);
-} */
-
-/* --- альтернативний варіант №1 кінець---*/
-
-/* ----альтернативний варіант №2  початок------- */ /* 
-.activity-item {
-  width: calc((100% - 60px) / 3);
-  margin-right: 30px;
-} */
-
-/* 
-.activity-item:nth-child(3n) {
-  margin-right: 0;
-} */
-/* ----альтернативний варіант №2  кінець------- */
-
 /*--------------- Наша команда ----------------*/
 
 .section.team {
@@ -349,21 +358,9 @@ img {
   flex-basis: calc((100% - var(--card-set-gap) * 3) / 4);
 }
 
-/* --- альтернативний варіант №1  початок---*/
-/* .team-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: calc(-1 * var(--card-set-gap));
-} */
-
-/* .team-item {
-  flex-basis: calc(100% / 4 - var(--card-set-gap));
-  margin-left: var(--card-set-gap);
-} */
-/* --- альтернативний варіант №1 кінець---*/
-
 /* .team-item * {
-  outline: 1px solid tomato;
+ outline: 1px solid tomato;
+  outline-offset: -2px;
 } */
 
 .team-card {
@@ -374,20 +371,6 @@ img {
 .team-caption {
   padding: 30px 0;
 }
-.team-position {
-  margin-top: 10px;
-}
-
-/* можливий варіан
-.team-item {
-  width: calc((100% - 90px) / 4);
-  margin-right: 30px;
-} */
-
-/* можливий варіан
-.team-item:nth-child(4n) {
-  margin-right: 0;
-} */
 
 .team-item {
   background-color: var(--primary-bg-color);
@@ -404,9 +387,134 @@ img {
   line-height: 1.19;
 
   color: var(--secondary-text-color);
+  margin-top: 10px;
+  margin-bottom: 16px;
 }
 
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.socials-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+
+  color: var(--primary-icons-fill-color);
+  background-color: var(--primary-bg-color);
+  border-radius: 50%;
+}
+
+.socials-link:hover,
+.socials-link:focus {
+  background-color: var(--accent-color);
+  color: var(--white-text-color);
+}
+
+/* при currentColor іконка копіює батьківський колір - колір LINK */
+.socials-icon {
+  fill: currentColor;
+}
+
+.socials-link.current {
+  background-color: var(--accent-color);
+  color: var(--white-text-color);
+}
+
+/* ========================================================================================================================== */
+
+/* Додатковий спосіб. При ньому потрібно видалити COLOR з social-link */
+/* .socials-icon {
+  fill: var(--primary-icons-fill-color);
+}
+
+.socials-link:hover,
+.socials-link:focus {
+  background-color: var(--accent-color);
+}
+
+.socials-link:hover .socials-icon,
+.socials-link:focus .socials-icon {
+  background-color: var(--accent-color);
+  fill: var(--white-text-color);
+} */
+/* =========================================================================================================================== */
+
+/* -----------Постоянные Клиенты------------ */
+.section.clients {
+  text-align: center;
+}
+
+.clients-list {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.clients-item {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  flex-basis: calc((100% - var(--card-set-gap) * 5) / 6);
+}
+
+.clients-link {
+  display: flex;
+  width: 170px;
+  height: 92px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--primary-icons-fill-color);
+  border-radius: 4px;
+
+  color: var(--primary-icons-fill-color);
+}
+
+.clients-icon {
+  fill: var(--primary-icons-fill-color);
+}
+
+.clients-link:hover {
+  border-color: var(--accent-color);
+}
+
+.clients-link:hover .clients-icon {
+  fill: var(--accent-color);
+}
+
+.clients-link.current {
+  border-color: var(--accent-color);
+}
+
+.clients-icon.current {
+  fill: var(--accent-color);
+}
+
+/* .clients-item {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  gap: 30px;
+} */
+
 /*------------ Footer -----------------*/
+
+.footer-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.footer-address-container {
+  margin-right: 70px;
+}
+
 .footer {
   background-color: var(--hero-footer-bg-color);
 
@@ -463,6 +571,54 @@ img {
   color: var(--accent-color);
 }
 
+.slogan {
+  color: var(--white-text-color);
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.footer-socials-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.socials-link-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+
+  /* color: var(--white-text-color); */
+  background-color: var(--footer-icons-bg-color);
+  border-radius: 50%;
+}
+
+/* Додатковий спосіб. При ньому потрібно видалити COLOR з social-link */
+.socials-icon-footer {
+  fill: var(--white-text-color);
+}
+
+.socials-link-footer:hover,
+.socials-link-footer:focus {
+  background-color: var(--accent-color);
+}
+
+.socials-link-footer:hover .socials-link-footer,
+.socials-link-footer:focus .socials-link-footer {
+  background-color: var(--accent-color);
+  fill: var(--white-text-color);
+}
+
+.socials-link-footer.current {
+  background-color: var(--accent-color);
+  color: var(--white-text-color);
+}
+
 /*--------------------- Портфолио ---------------------*/
 
 /* Фільтр */
@@ -487,6 +643,7 @@ img {
   border-radius: 4px;
   border: none;
   padding: 6px 22px;
+  box-shadow: var(--filtr-btn-box-shadow);
 }
 
 .filter-btn {
@@ -586,6 +743,15 @@ img {
 
 .projects-caption {
   padding: 20px 24px;
-  border: var(--projects-border-clr);
+  border: var(--projects-border-color);
   border-top: none;
+}
+
+.projects-item:hover {
+  box-shadow: var(--portfolio-card-shadow);
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+  box-shadow: var(--portfolio-btn-shadow);
 }
