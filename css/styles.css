@@ -480,7 +480,8 @@ img {
   fill: currentColor;
 }
 
-.clients-link:hover {
+.clients-link:hover,
+.clients-link:focus {
   border-color: var(--accent-color);
   color: var(--accent-color);
 }
